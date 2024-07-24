@@ -1,15 +1,15 @@
 apiVersion: v2
-name: workshop-test
+name: devopscourse
 description: A Helm chart for Kubernetes
 type: application
 dependencies:
   - name: devopscourse
-    repository: oci://ghcr.io/omerh299/helm
+    repository: "oci://ghcr.io/omerh299/helm"
     version: "1.0.0"
     alias: deploy1
   - name: devopscourse
     repository: "oci://ghcr.io/omerh299/helm"
-    version: 1.0.1
+    version: "1.0.1"
     alias: deploy2
 version: 1.0.0
 appVersion: "1.0.0"
