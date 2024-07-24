@@ -4,7 +4,7 @@ description: A Helm chart for Kubernetes
 type: application
 dependencies:
   - name: devopscourse
-    repository: oci://ghcr.io/omerH299/helm/
+    repository: oci://ghcr.io/omerh299/helm/
     version: "1.0.0"
     alias: deploy1
 version: 1.0.0
