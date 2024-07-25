@@ -9,8 +9,11 @@ service:
   servicePort: 8080
 
 probes:
+  paths:
+    readiness: /health/readiness
+    liveness: /health/liveliness
+    
   readiness:
-    path: /health/readiness
     initialDelaySeconds: 1
     timeoutSeconds: 1
     periodSeconds: 10
@@ -18,7 +21,6 @@ probes:
     failureThreshold: 3
   
   liveness:
-    path: /health/liveliness
     initialDelaySeconds: 1
     timeoutSeconds: 1
     periodSeconds: 10
