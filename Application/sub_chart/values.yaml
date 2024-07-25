@@ -13,9 +13,9 @@ deploy2:
   ReplicaNumber: 1
 
   containers:
-    containerPort: 8080
-    image: 'quay.io/omer299/lab1'
-    tag: 'chart_v1'
+      containerPort: 8080
+      image: 'quay.io/omer299/lab1'
+      tag: 'chart_v1'
 
   service:
-    servicePort: 8080
+      servicePort: 8080
