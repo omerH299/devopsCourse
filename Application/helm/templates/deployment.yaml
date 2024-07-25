@@ -36,24 +36,16 @@ spec:
               value: {{ .Values.containers.containerPort | quote }}
           readinessProbe:
             httpGet:
-              path: {{ tpl .Values.probes.readiness.path . | quote }} # this check the application url path
+              path: {{ .Values.probes.readiness.path | quote }} # this check the application url path
               port: {{ .Values.containers.containerPort  }} # In which port the Application is listening
               scheme: HTTP
-            initialDelaySeconds: {{ tpl .Values.probes.readiness.initialDelaySeconds . }}  # Template function used here
-            timeoutSeconds: {{ tpl .Values.probes.readiness.timeoutSeconds . }} # Template function used here
-            periodSeconds: {{ tpl .Values.probes.readiness.periodSeconds . }} # Template function used here
-            successThreshold: {{ tpl .Values.probes.readiness.successThreshold . }} # Template function used here
-            failureThreshold: {{ tpl .Values.probes.readiness.failureThreshold . }}
+            {{- tpl (toYaml .Values.Probes.readiness) . | nindent 12 }}
           livenessProbe:
             httpGet:
-              path: {{ tpl .Values.probes.liveness.path . | quote }}
+              path: {{ .Values.probes.liveness.path | quote }}
               port: {{ .Values.containers.containerPort }}
               scheme: HTTP
-            initialDelaySeconds: {{ tpl .Values.probes.liveness.initialDelaySeconds . }}  # Template function used here
-            timeoutSeconds: {{ tpl .Values.probes.liveness.timeoutSeconds . }} # Template function used here
-            periodSeconds: {{ tpl .Values.probes.liveness.periodSeconds . }} # Template function used here
-            successThreshold: {{ tpl .Values.probes.liveness.successThreshold . }} # Template function used here
-            failureThreshold: {{ tpl .Values.probes.liveness.failureThreshold . }} # count to decalre failure
+            {{- tpl (toYaml .Values.Probes.liveness) . | nindent 12 }}
 # Update with the image you build in part 1
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
       restartPolicy: Always
