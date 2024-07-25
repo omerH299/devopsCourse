@@ -3,8 +3,8 @@ deploy1:
 
   containers:
       containerPort: 8080
-      image: 'ghcr.io/omerh299/helm/devopscourse'
-      tag: '1.0.0'
+      image: 'quay.io/omer299/lab1'
+      tag: 'chart_v1'
 
   service:
       servicePort: 8080
