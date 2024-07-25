@@ -5,7 +5,7 @@ type: application
 dependencies:
   - name: devopscourse
     repository: oci://ghcr.io/omerh299/helm
-    version: "1.0.4"
+    version: "1.0.5"
     alias: deploy1
   - name: devopscourse
     repository: oci://ghcr.io/omerh299/helm
