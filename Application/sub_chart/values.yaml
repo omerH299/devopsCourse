@@ -33,4 +33,4 @@ test: fail
 github:
   user: omerh299
   token: empty-pass
-  url: <https://api.github.com/repos/omerh299/devopscourse/issues>
+  url: https://api.github.com/repos/omerh299/devopscourse/issues
