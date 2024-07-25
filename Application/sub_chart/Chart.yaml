@@ -7,6 +7,7 @@ dependencies:
     repository: oci://ghcr.io/omerh299/helm
     version: "1.0.0"
     alias: deploy1
+    
   - name: devopscourse
   repository: oci://ghcr.io/omerh299/helm
   version: "1.0.0"
