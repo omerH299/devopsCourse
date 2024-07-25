@@ -3,6 +3,8 @@ apiVersion: apps/v1
 metadata:
 # set your lab user name
   name: {{ .Chart.Name }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "{{ .Values.commitHash | default (now | date "20060102150405") }}"
 spec:
   replicas: {{ .Values.ReplicaNumber }}
   selector:
