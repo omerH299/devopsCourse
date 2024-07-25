@@ -35,7 +35,6 @@ spec:
             - name: PORT
               value: {{ .Values.containers.containerPort | quote }}
           readinessProbe:
-            httpGet:
             {{- tpl (toYaml .Values.probes.readiness) . | nindent 12 }}
           livenessProbe:
             {{- tpl (toYaml .Values.probes.liveness) . | nindent 12 }}
