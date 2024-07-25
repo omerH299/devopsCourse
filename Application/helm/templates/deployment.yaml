@@ -36,24 +36,24 @@ spec:
               value: {{ .Values.containers.containerPort | quote }}
           readinessProbe:
             httpGet:
-              path: {{ .Values.probes.readiness.path | quote }} # this check the application url path
+              path: {{ tpl .Values.probes.readiness.path . | quote }} # this check the application url path
               port: {{ .Values.containers.containerPort  }} # In which port the Application is listening
               scheme: HTTP
-            initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}  # the time is waiting befor testing the application path
-            timeoutSeconds: {{ .Values.probes.readiness.timeoutSeconds }} # the time for timeout
-            periodSeconds: {{ .Values.probes.readiness.periodSeconds }} # the abount of time to wait between checks
-            successThreshold: {{ .Values.probes.readiness.successThreshold }} # count to decalre seccessfull 
-            failureThreshold: {{ .Values.probes.readiness.failureThreshold }} # count to decalre failure
+            initialDelaySeconds: {{ tpl .Values.probes.readiness.initialDelaySeconds . }}  # Template function used here
+            timeoutSeconds: {{ tpl .Values.probes.readiness.timeoutSeconds . }} # Template function used here
+            periodSeconds: {{ tpl .Values.probes.readiness.periodSeconds . }} # Template function used here
+            successThreshold: {{ tpl .Values.probes.readiness.successThreshold . }} # Template function used here
+            failureThreshold: {{ tpl .Values.probes.readiness.failureThreshold . }}
           livenessProbe:
             httpGet:
-              path: {{ .Values.probes.liveness.path | quote }}
+              path: {{ tpl .Values.probes.liveness.path . | quote }}
               port: {{ .Values.containers.containerPort }}
               scheme: HTTP
-            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}  # the time is waiting befor testing the application path
-            timeoutSeconds: {{ .Values.probes.liveness.timeoutSeconds }} # the time for timeout
-            periodSeconds: {{ .Values.probes.liveness.periodSeconds }} # the abount of time to wait between checks
-            successThreshold: {{ .Values.probes.liveness.successThreshold }} # count to decalre seccessfull 
-            failureThreshold: {{ .Values.probes.liveness.failureThreshold }} # count to decalre failure
+            initialDelaySeconds: {{ tpl .Values.probes.liveness.initialDelaySeconds . }}  # Template function used here
+            timeoutSeconds: {{ tpl .Values.probes.liveness.timeoutSeconds . }} # Template function used here
+            periodSeconds: {{ tpl .Values.probes.liveness.periodSeconds . }} # Template function used here
+            successThreshold: {{ tpl .Values.probes.liveness.successThreshold . }} # Template function used here
+            failureThreshold: {{ tpl .Values.probes.liveness.failureThreshold . }} # count to decalre failure
 # Update with the image you build in part 1
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
       restartPolicy: Always
