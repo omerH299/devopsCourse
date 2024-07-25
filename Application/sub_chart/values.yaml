@@ -29,3 +29,8 @@ deploy2:
       configmap: 1
 
 test: Healthy
+
+github:
+  user: omerh299
+  token: empty-pass
+  url: <https://api.github.com/repos/omerh299/devopscourse/issues>
