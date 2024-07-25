@@ -39,13 +39,13 @@ spec:
               path: {{ .Values.probes.readiness.path | quote }} # this check the application url path
               port: {{ .Values.containers.containerPort  }} # In which port the Application is listening
               scheme: HTTP
-            {{- tpl (toYaml .Values.Probes.readiness) . | nindent 12 }}
+              {{- tpl (toYaml .Values.probes.readiness) . | nindent 12 }}
           livenessProbe:
             httpGet:
               path: {{ .Values.probes.liveness.path | quote }}
               port: {{ .Values.containers.containerPort }}
               scheme: HTTP
-            {{- tpl (toYaml .Values.Probes.liveness) . | nindent 12 }}
+              {{- tpl (toYaml .Values.probes.liveness) . | nindent 12 }}
 # Update with the image you build in part 1
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
       restartPolicy: Always
