@@ -11,6 +11,7 @@ service:
 argocd:
   syncwave:
      deployment: 5
+     configmap: 1
 
 probes:
   paths:
