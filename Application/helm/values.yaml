@@ -10,7 +10,7 @@ service:
 
 probes:
   readiness:
-    path: /health/readiness
+    path: /health/readinesszzzzz
     initialDelaySeconds: 1
     timeoutSeconds: 1
     periodSeconds: 10
